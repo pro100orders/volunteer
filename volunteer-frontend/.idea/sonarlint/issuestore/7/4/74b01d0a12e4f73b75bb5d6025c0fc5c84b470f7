@@ -1,0 +1,12 @@
+
+Tjavascript:S1481
+"9Remove the declaration of the unused 'setValue' variable.(ôş±c
+Qjavascript:S1854
+"6Remove this useless assignment to variable "setValue".(ôş±c
+„javascript:S1172"cRemove the unused function parameter "reason" or rename it to "_reason" to make intention explicit.(æ‹×ÿÿÿÿÿ
+„javascript:S1172*"cRemove the unused function parameter "reason" or rename it to "_reason" to make intention explicit.(æ‹×ÿÿÿÿÿ
+„javascript:S11724"cRemove the unused function parameter "reason" or rename it to "_reason" to make intention explicit.(æ‹×ÿÿÿÿÿ
+‹javascript:S1172P"cRemove the unused function parameter "reason" or rename it to "_reason" to make intention explicit.(æ‹×ÿÿÿÿÿ8ÛàÓÃ0
+‚javascript:S1172"aRemove the unused function parameter "event" or rename it to "_event" to make intention explicit.(ƒšËĞıÿÿÿÿ
+Rjavascript:S1117"1'authors' is already declared in the upper scope.(ƒšËĞıÿÿÿÿ
+Yjavascript:S1854€"7Remove this useless assignment to variable "prevStare".(‚ƒ¤Ùÿÿÿÿÿ

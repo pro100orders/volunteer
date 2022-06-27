@@ -1,0 +1,22 @@
+
+\javascript:S1481";Remove the declaration of the unused 'openAuthor' variable.(ø¨¿Şúÿÿÿÿ
+Yjavascript:S1854"8Remove this useless assignment to variable "openAuthor".(ø¨¿Şúÿÿÿÿ
+_javascript:S1481">Remove the declaration of the unused 'setOpenAuthor' variable.(ø¨¿Şúÿÿÿÿ
+\javascript:S1854";Remove this useless assignment to variable "setOpenAuthor".(ø¨¿Şúÿÿÿÿ
+^javascript:S1481"=Remove the declaration of the unused 'openCategory' variable.(öŒ¶ùÿÿÿÿ
+[javascript:S1854":Remove this useless assignment to variable "openCategory".(öŒ¶ùÿÿÿÿ
+ajavascript:S1481"@Remove the declaration of the unused 'setOpenCategory' variable.(öŒ¶ùÿÿÿÿ
+^javascript:S1854"=Remove this useless assignment to variable "setOpenCategory".(öŒ¶ùÿÿÿÿ
+_javascript:S1481">Remove the declaration of the unused 'openLanguages' variable.(¤”Á“øÿÿÿÿ
+\javascript:S1854";Remove this useless assignment to variable "openLanguages".(¤”Á“øÿÿÿÿ
+bjavascript:S1481"ARemove the declaration of the unused 'setOpenLanguages' variable.(¤”Á“øÿÿÿÿ
+_javascript:S1854">Remove this useless assignment to variable "setOpenLanguages".(¤”Á“øÿÿÿÿ
+„javascript:S1172"cRemove the unused function parameter "reason" or rename it to "_reason" to make intention explicit.(æ‹×ÿÿÿÿÿ
+„javascript:S1172("cRemove the unused function parameter "reason" or rename it to "_reason" to make intention explicit.(æ‹×ÿÿÿÿÿ
+„javascript:S11722"cRemove the unused function parameter "reason" or rename it to "_reason" to make intention explicit.(æ‹×ÿÿÿÿÿ
+}javascript:S1172G"aRemove the unused function parameter "event" or rename it to "_event" to make intention explicit.(˜ïñË
+Sjavascript:S1854H"7Remove this useless assignment to variable "prevStare".(à¥œı
+‚javascript:S1172b"aRemove the unused function parameter "event" or rename it to "_event" to make intention explicit.(³±µÊùÿÿÿÿ
+Xjavascript:S1854c"7Remove this useless assignment to variable "prevStare".(Î¯‡ıÿÿÿÿ
+‚javascript:S1172{"aRemove the unused function parameter "event" or rename it to "_event" to make intention explicit.(°ççóşÿÿÿÿ
+Rjavascript:S1854|"7Remove this useless assignment to variable "prevStare".(âßİ
