@@ -5,7 +5,7 @@ import $api from "../../http";
 import {toastr} from "react-redux-toastr";
 import {emailValidation, passwordValidation} from "./validation";
 
-const EditProfileForm = ({setModalProfileEdit}) => {
+const EditProfileForm = ({setOpen}) => {
 
     const {handleSubmit, control, setValue, setFocus, setError} = useForm({
         mode: 'onBlur'
@@ -17,7 +17,7 @@ const EditProfileForm = ({setModalProfileEdit}) => {
     const [oldUser, setOldUser] = useState({});
 
     useEffect(() => {
-        $api.get('/user/profile')
+        $api.get('/user')
             .then(response => {
                 setOldUser(response.data);
             })
@@ -35,6 +35,7 @@ const EditProfileForm = ({setModalProfileEdit}) => {
         setValue("email", oldUser.email);
         setValue("phone", oldUser.phone);
         setValue("address", oldUser.address);
+        setValue("description", oldUser.description);
     }, [oldUser]);
 
     const onSubmit = (user) => {
@@ -69,17 +70,17 @@ const EditProfileForm = ({setModalProfileEdit}) => {
             if (user.password === undefined || user.newPassword === undefined) {
                 let userWithoutPassword = {...user, password: "", newPassword: ""};
                 console.log("update", userWithoutPassword);
-                $api.put('/user/profile', userWithoutPassword)
+                $api.put('/user', userWithoutPassword)
                     .then(response => {
                         setOldUser(response.data);
-                        setModalProfileEdit(false);
+                        setOpen(false);
                     });
             } else {
                 console.log("update", user);
-                $api.put('/user/profile', user)
+                $api.put('/user', user)
                     .then(response => {
                         setOldUser(response.data);
-                        setModalProfileEdit(false);
+                        setOpen(false);
                     });
             }
         }
@@ -175,6 +176,22 @@ const EditProfileForm = ({setModalProfileEdit}) => {
                             onChange={(e) => field.onChange(e)}
                             error={!!errors.email?.message}
                             helperText={errors.email?.message}
+                        />
+                    )}
+                />
+                <Controller
+                    control={control}
+                    name="description"
+                    render={({field}) => (
+                        <TextField
+                            label="Опис"
+                            size="small"
+                            margin="normal"
+                            fullWidth={true}
+                            value={field.value}
+                            onChange={(e) => field.onChange(e)}
+                            error={!!errors.description?.message}
+                            helperText={errors.description?.message}
                         />
                     )}
                 />

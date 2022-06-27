@@ -19,8 +19,6 @@ import RequestsList from "../../components/Requests/RequestsList/RequestsList";
 
 const Requests = () => {
 
-    const roles = useSelector(state => state.auth.user.roles);
-
     const [requests, setRequests] = useState([]);
     const [isLoading, setLoading] = useState(true);
 

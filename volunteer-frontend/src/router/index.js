@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 import Requests from "../pages/Requests/Requests";
 import RequestDetails from "../components/Requests/RequestDetails/RequestDetails";
 import Admin from '../pages/Admin/Admin';
+import AnotherProfile from "../pages/AnotherProfile/AnotherProfile";
 
 const AppRoutes = () => {
 
@@ -31,6 +32,7 @@ const AppRoutes = () => {
         if (roles && roles.includes("ROLE_USER")) {
             const userRoutes = [
                 {path: "/profile", component: Profile},
+                {path: "/profile/:id", component: AnotherProfile},
             ];
 
             setRoutes(routes => routes = routes.concat(userRoutes));

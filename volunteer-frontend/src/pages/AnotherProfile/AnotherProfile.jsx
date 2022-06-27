@@ -3,9 +3,8 @@ import $api from "../../http";
 import {toastr} from "react-redux-toastr";
 import {Button, Container, Typography} from "@mui/material";
 import RequestsList from "../../components/Requests/RequestsList/RequestsList";
-import AddRequestForm from "../../components/Requests/AddRequestForm/AddRequestForm";
-import MyModal from "../../components/UI/Modal/MyModal";
-import EditProfileForm from "../../components/Profile/EditProfileForm";
+import {useNavigate, useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const Profile = ({setModalProfileEdit}) => {
 
@@ -13,10 +12,14 @@ const Profile = ({setModalProfileEdit}) => {
     const [requests, setRequests] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
-    const [open, setOpen] = useState(false);
+    const id = useSelector(state => state.auth.user.id);
+
+    const params = useParams();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
-        $api.get('/user')
+        $api.get('/user/' + params.id)
             .then(response => {
                 setUser(response.data);
             })
@@ -27,7 +30,7 @@ const Profile = ({setModalProfileEdit}) => {
 
     useEffect(() => {
         setLoading(true);
-        $api.get('/user/requests')
+        $api.get('/user/' + params.id + '/requests')
             .then(response => {
                 setRequests(response.data);
                 setLoading(false);
@@ -37,6 +40,11 @@ const Profile = ({setModalProfileEdit}) => {
             });
     }, []);
 
+    if(params.id == id) {
+        console.log(1);
+        navigate("/profile");
+    }
+
     return (
         <Container maxWidth="xl" sx={{marginTop: "10px", paddingTop: "10px", display: "flex"}}
                    style={{minHeight: "100vh"}}>
@@ -45,7 +53,7 @@ const Profile = ({setModalProfileEdit}) => {
             </div>
             <div style={{marginLeft: 10}}>
                 <Typography variant="h3" component="div">
-                    Мій профіль
+                    Профіль
                 </Typography>
                 <Typography variant="h5" component="div">
                     Прізвище : {user.surname}
@@ -71,13 +79,6 @@ const Profile = ({setModalProfileEdit}) => {
                         Опис : {user.description}
                     </Typography>
                 }
-                <div style={{marginTop: 2}}>
-                    <Button variant="contained" color="primary" onClick={e => setOpen(true)}>
-                        Редагувати профіль
-                    </Button>
-                </div>
-                <MyModal open={open} setOpen={setOpen}
-                         children={<EditProfileForm setOpen={setOpen}/>}/>
             </div>
         </Container>
     );

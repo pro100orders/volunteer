@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import $api from "../../../http";
 import {Button, Container, TextField, Typography} from "@mui/material";
 import {toastr} from "react-redux-toastr";
@@ -129,10 +129,14 @@ const RequestDetails = () => {
                                     </Button>
                                     {
                                         comments.map(comment =>
-                                            <div style={{border: "1px solid black", borderRadius: 10, padding: 10, margin: 2,
-                                                display: "flex", justifyContent: "space-between"}}>
+                                            <div style={{
+                                                border: "1px solid black", borderRadius: 10, padding: 10, margin: 2,
+                                                display: "flex", justifyContent: "space-between"
+                                            }}>
                                                 <div>
-                                                    <div>{comment.user.surname + " " + comment.user.name}</div>
+                                                    <Link to={'/profile/' + comment.user.id}>
+                                                        <div>{comment.user.surname + " " + comment.user.name}</div>
+                                                    </Link>
                                                     <div>{comment.text}</div>
                                                 </div>
                                                 <Typography variant="h6" component="div">
@@ -146,10 +150,14 @@ const RequestDetails = () => {
                                     }
                                     {
                                         request.comments.map(comment =>
-                                            <div style={{border: "1px solid black", borderRadius: 10, padding: 10, margin: 2,
-                                                display: "flex", justifyContent: "space-between"}}>
+                                            <div style={{
+                                                border: "1px solid black", borderRadius: 10, padding: 10, margin: 2,
+                                                display: "flex", justifyContent: "space-between"
+                                            }}>
                                                 <div>
-                                                    <div>{comment.user.surname + " " + comment.user.name}</div>
+                                                    <Link to={'/profile/' + comment.user.id}>
+                                                        <div>{comment.user.surname + " " + comment.user.name}</div>
+                                                    </Link>
                                                     <div>{comment.text}</div>
                                                 </div>
                                                 <Typography variant="h6" component="div">
@@ -168,7 +176,9 @@ const RequestDetails = () => {
                             <Typography variant="h4" component="div">
                                 Відгукнутися
                             </Typography>
-                            <img src="https://filestore.community.support.microsoft.com/api/images/f2e55cbf-8316-4d3a-9412-ecd8194b2a72?upload=true" alt="Фотографія"/>
+                            <img
+                                src="https://filestore.community.support.microsoft.com/api/images/f2e55cbf-8316-4d3a-9412-ecd8194b2a72?upload=true"
+                                alt="Фотографія"/>
                             <Typography variant="h6" component="div">
                                 Контактні дані:
                             </Typography>

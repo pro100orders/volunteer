@@ -2,7 +2,7 @@ import $api from "../../../http";
 import {useEffect, useState} from "react";
 import {Controller, useForm, useFormState} from "react-hook-form";
 import {toastr} from "react-redux-toastr";
-import {Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField} from "@mui/material";
+import {Button, Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 
 const EditRequestForm = ({request, setOpen}) => {
@@ -16,6 +16,7 @@ const EditRequestForm = ({request, setOpen}) => {
 
     const [request1, setRequest1] = useState(request.request);
     const [payment, setPayment] = useState(request.payment);
+    const [status, setStatus] = useState(request.status);
 
     const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ const EditRequestForm = ({request, setOpen}) => {
     }, []);
 
     const onSubmit = (request) => {
-        let newrequest = {...request, payment, request1};
+        let newrequest = {...request, payment, request1, status};
         $api.put("/requests", newrequest)
             .then(response => {
                 setOpen(false);
@@ -38,6 +39,7 @@ const EditRequestForm = ({request, setOpen}) => {
             });
     };
 
+    console.log(request.status)
     return (
         <div className='add-book-form' style={{width: "600px"}}>
             <form className="add-book-form__form" onSubmit={handleSubmit(onSubmit)}>
@@ -122,6 +124,12 @@ const EditRequestForm = ({request, setOpen}) => {
                         </RadioGroup>
                     </FormControl>
                 </div>
+                <FormControlLabel control={
+                    <Checkbox
+                        checked={status}
+                        onChange={(e) => setStatus(!status)}
+                    />
+                } label="Виконано"/>
                 <Button
                     type="submit"
                     variant="contained"

@@ -3,9 +3,6 @@ import {Card, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 
 const Request = ({request}) => {
-
-    const roles = useSelector(state => state.auth.user.roles);
-
     return (
         <Card style={{padding: 10, marginBottom: 2}}>
             <div style={{display: "flex"}}>
@@ -20,12 +17,18 @@ const Request = ({request}) => {
                 }
                 |
                 {request.payment ?
-                    <Typography style={{marginLeft: 5}}>
+                    <Typography style={{marginLeft: 5, marginRight: 5}}>
                         Оплачується
                     </Typography>
                     :
-                    <Typography style={{marginLeft: 5}}>
+                    <Typography style={{marginLeft: 5, marginRight: 5}}>
                         Не оплачується
+                    </Typography>
+                }
+                |
+                {request.status &&
+                    <Typography style={{marginLeft: 5}}>
+                        Виконана
                     </Typography>
                 }
             </div>
