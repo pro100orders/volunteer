@@ -24,4 +24,6 @@ public class UserDTO {
     private String address;
 
     private String description;
+
+    private boolean enabled;
 }

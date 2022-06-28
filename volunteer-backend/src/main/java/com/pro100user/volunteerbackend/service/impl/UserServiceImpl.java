@@ -108,4 +108,13 @@ public class UserServiceImpl implements UserService {
                 userRepository.findById(userId).orElseThrow().getRequests()
         );
     }
+
+    @Override
+    public UserDTO toggleUser(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow();
+        user.setEnabled(!user.isEnabled());
+        return userMapper.toUserDTO(
+                userRepository.save(user)
+        );
+    }
 }

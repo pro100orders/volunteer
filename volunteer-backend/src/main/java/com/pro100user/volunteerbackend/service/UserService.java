@@ -16,4 +16,5 @@ public interface UserService {
     List<UserDTO> getAll();
 
     List<RequestDTO> getRequests(Long userId);
+    UserDTO toggleUser(Long userId);
 }
